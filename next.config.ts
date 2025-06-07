@@ -3,7 +3,7 @@ import nextra from 'nextra';
 
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  // output: 'export',
 };
 
 const withNextra = nextra({
