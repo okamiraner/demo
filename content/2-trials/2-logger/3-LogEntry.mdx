@@ -1,0 +1,51 @@
+---
+sidebarTitle: LogEntry
+---
+
+
+# class LogEntry
+
+Represents a single log entry with a timestamp, message, and severity level.
+
+This class provides methods for creating new log entries, getting their details,
+and logging them to a file or console.
+
+
+## Members
+
+
+### LogEntry() 
+
+Constructs a new LogEntry object with the given timestamp, message, and severity
+level.
+
+
+#### Parameters
+
+* `timestamp` The timestamp of when the log entry was created. 
+
+* `message` The message associated with the log entry. 
+
+* `severity` The severity level of the log entry (e.g. INFO, WARNING, ERROR).
+
+
+### getLogEntry() 
+
+Returns a string representation of the log entry in the format "timestamp:
+message".
+
+
+#### Returns
+
+A formatted string containing the timestamp and message.
+
+
+### `log()` 
+
+Logs the log entry to a file or console with the specified logging level.
+
+
+#### Parameters
+
+* `logger` The logging object to use for this operation.
+* `logLevel` The logging level to use (e.g. INFO, WARNING, ERROR).

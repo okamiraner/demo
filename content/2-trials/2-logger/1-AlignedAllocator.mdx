@@ -1,0 +1,70 @@
+---
+sidebarTitle: AlignedAllocator
+---
+
+
+# class AlignedAllocator
+
+A custom allocator class that aligns memory blocks to a specified size.
+
+This class provides a way to allocate and de-allocate memory, ensuring that the
+allocated memory is always aligned to a specific size. It's particularly useful
+for allocation of data structures with fixed-size alignment requirements, such
+as structures containing integers or pointers.
+
+
+## Members
+
+
+### AlignedAllocator()
+
+
+Constructor for the AlignedAllocator class.
+
+Initializes the allocator with the specified alignment size.
+
+
+#### Parameters
+
+
+##### `size`
+
+The minimum alignment size required for allocations.
+
+
+##### `alignment`
+
+The alignment requirement (in bytes) for the allocated memory.
+
+### ~AlignedAllocator()
+
+Destructor for the `AlignedAllocator` class.
+
+
+### allocate()
+
+Allocates memory of a specified size, ensuring it's aligned to the specified
+alignment size.
+
+
+#### Parameters
+
+
+##### `size`
+
+The amount of memory to allocate.
+
+
+#### Returns
+
+A pointer to the allocated memory, or nullptr if allocation failed.
+
+
+### deallocate()
+
+Deallocates memory previously allocated by this allocator.
+
+
+#### Parameters
+
+* `ptr` The pointer to the memory block to deallocate.
