@@ -1,16 +1,10 @@
-import 'dotenv/config';
 import nextra from 'nextra';
 
 
-const isGitHubPages = process.env.DEPLOY_ENV === 'gh-pages';
-
-
-console.log(process.env)
-console.log(isProd)
 const nextConfig = {
   output: 'export',
-  basePath: isGitHubPages ? '/demo' : '',
-  assetPrefix: isGitHubPages ? '/demo/' : '',
+  basePath: process.env.GITHUB_PAGES ? '/demo' : '',
+  assetPrefix: process.env.GITHUB_PAGES ? '/demo/' : '',
   images: {
     unoptimized: true,
   },
