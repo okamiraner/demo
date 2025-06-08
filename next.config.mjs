@@ -2,15 +2,13 @@ import 'dotenv/config';
 import nextra from 'nextra';
 
 
-const isProd = process.env.NEXT_PUBLIC_ENV === 'production';
+const isGitHubPages = process.env.DEPLOY_ENV === 'gh-pages';
 
 
-console.log(process.env)
-console.log(isProd)
 const nextConfig = {
   output: 'export',
-  basePath: isProd ? '/demo' : '',
-  assetPrefix: isProd ? '/demo/' : '',
+  basePath: isGitHubPages ? '/demo' : '',
+  assetPrefix: isGitHubPages ? '/demo/' : '',
   images: {
     unoptimized: true,
   },
