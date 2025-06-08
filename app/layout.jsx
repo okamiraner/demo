@@ -12,7 +12,7 @@ export const metadata = {
 
 const navbar = (
   <Navbar
-    logo={<b>Portfolio & Trials</b>}
+    logo={<b>⚡️ Portfolio & Trials</b>}
     // ... Your additional navbar options
   />
 )
@@ -26,7 +26,12 @@ export default async function RootLayout({ children }) {
       dir="ltr"
       suppressHydrationWarning
     >
-      <Head faviconGlyph="✦" />
+      <Head>
+        <link
+          rel="icon"
+          href={`data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='.9em' font-size='90' text-anchor='middle'>⚡️</text></svg>`}
+        />
+      </Head>
       <body>
         <Layout
           navbar={navbar}
