@@ -38,8 +38,9 @@ export default async function RootLayout({ children }) {
         <Layout
           navbar={navbar}
           pageMap={await getPageMap()}
+          editLink={null}
           footer={footer}
-          // ... Your additional layout options
+          feedback={{content: null}}
         >
           {children}
         </Layout>

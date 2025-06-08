@@ -2,8 +2,11 @@ import 'dotenv/config';
 import nextra from 'nextra';
 
 
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NEXT_PUBLIC_ENV === 'production';
 
+
+console.log(process.env)
+console.log(isProd)
 const nextConfig = {
   output: 'export',
   basePath: isProd ? '/demo' : '',
