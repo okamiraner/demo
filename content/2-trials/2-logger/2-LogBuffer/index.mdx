@@ -1,0 +1,13 @@
+---
+asIndexPage: true
+---
+
+# class LogBuffer
+
+Class acts as a buffer for log entries. It manages the queue and ensures
+thread-safe allocation of log entries.
+
+Key Features:
+*   Uses a mutex to serialize allocations.
+*   Provides a log method to add log entries to the queue.
+*   Offers a consume method to retrieve log entries from the queue.

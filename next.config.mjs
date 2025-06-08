@@ -10,9 +10,7 @@ const nextConfig = {
   },
 };
 
-const withNextra = nextra({
-
-});
+const withNextra = nextra({});
 
 
 export default withNextra({

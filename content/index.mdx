@@ -1,20 +1,31 @@
 ---
-hideSidebar: true 
+sidebarTitle: 'Welcome'
 ---
 
 
-import { Cards } from 'nextra/components'
+import { Cards } from 'nextra/components';
 
 
-# Portfolio & Trials
+# Welcome
 
-<Cards>
+This portfolio has been specifically created to showcase work and trials in
+support of job applications. It presents a curated selection of projects that
+demonstrate skills and expertise.
+
+
+<Cards
+  num="2"  
+>
   <Cards.Card
+    icon={"💼"}
     title="Portfolio"
-    href="/content/1-portfolio"
+    href="/1-portfolio"
+    arrow
   />
   <Cards.Card
+    icon={"✏️"}
     title="Trials"
-    href="/content/2-trials"
+    href="/2-trials"
+    arrow
   />
 </Cards>

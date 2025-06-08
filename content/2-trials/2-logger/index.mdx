@@ -4,56 +4,83 @@ sidebarTitle: Task 2 - Logger
 ---
 
 
+import { Image } from 'nextra/components'
+
+
 # component Logger
 
 
-## Members
+## Overview
 
-### [class AlignedAllocator](/2-trials/2-logger/1-AlignedAllocator)
+
+<Image
+  style={{
+    left: '50%',
+    margin: 'auto',
+    padding: '50px',
+  }}
+  src="/logger.svg"
+  draggable="false"
+/>
+
+---
+
+
+### Classes
+
+
+#### [class AlignedAllocator](/2-trials/2-logger/1-AlignedAllocator)
 
 A custom allocator class that aligns memory blocks to a specified size.
 
 
-* `class `[`LogBuffer`](#class_log_buffer)
+#### [class LogBuffer](/2-trials/2-logger/2-LogBuffer)
   
-  A class to manage and store logs.
-
-`class `[`LogEntry`](#class_log_entry) | Represents a single log entry with a timestamp, message, and severity level.
-`class `[`LogWriter`](#class_log_writer) | A simple logger that writes logs to a file or other output stream.
-`struct `[`LockFreeQueue`](#struct_lock_free_queue) | Data structure representing a lock-free queue.
-`struct `[`LockFreeQueueNode`](#struct_lock_free_queue_node) | Node in the linked list representation of the lock-free queue.
+A class to manage and store logs.
 
 
+#### [class LogEntry](/2-trials/2-logger/3-LogEntry)
+
+Represents a single log entry with a timestamp, message, and severity level.
 
 
-{/*
-<Cards
-  num="1"
->
-  <Cards.Card
-    title="class AlignedAllocator"
-    href="/2-trials/2-logger/1-AlignedAllocator"
-    arrow
-  />
-  <Cards.Card
-    title="class LogEntry"
-    href="/2-trials/2-logger/2-LogEntry"
-    arrow
-  />
-  <Cards.Card
-    title="class LogBuffer"
-    href="/2-trials/2-logger/3-LogBuffer"
-    arrow
-  />
-  <Cards.Card
-    title="class LogWriter"
-    href="/2-trials/2-logger/4-LogWriter"
-    arrow
-  />
-  <Cards.Card
-    title="struct LockFreeQueue"
-    href="/2-trials/2-logger/5-LockFreeQueue"
-    arrow
-  />
-</Cards>
-*/}
+#### [class LogWriter](/2-trials/2-logger/4-LogWriter)
+
+A simple logger that writes logs to a file or other output stream.
+
+
+### Structures
+
+
+#### [struct LockFreeQueue](/2-trials/2-logger/5-LockFreeQueue)
+
+Data structure representing a lock-free queue.
+
+
+## Ask the Devs
+
+1.  I run two processes in parallel and sometimes get a thread logs distorted
+    like this:
+
+    ```log
+    [178635891] [TID 0x16d167000] [INFO] Log message from producer thread
+    [178635891] [TID 0x16d167000] [INFO] Log message from producer thread
+    [178635891] [TID 0x16d167000] [INFO] Log message from [178636121] [TID 0x16b24f000] [INFO] Log message from producer thread
+    producer thread
+    [178635891] [TID 0x16d167000] [INFO] Log message from producer thread
+    ```
+
+    ```log
+    [182741152] [TID 0x16b0bb000] [INFO] Log message from producer thread
+     Log message from producer thread
+    [182741151] [TID 0x16d72b000] [INFO] Log message from producer thread
+    ```
+    
+    What is the origin of that?
+
+1.  It writes into the log as many entries as can while the program is running?
+    That's why log's length depends on optimization?
+
+1.  What is use case? For example, programs run from different TTY sessions
+    produce serialized logs, but entries from different threads get revolved
+    each ~4 KB anyway. 

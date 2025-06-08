@@ -1,0 +1,16 @@
+---
+asIndexPage: true
+sidebarTitle: LogWriter
+---
+
+
+# class LogWriter
+
+Class is responsible for writing log entries to a specified file. It runs in a
+separate thread to continuously consume log entries from the buffer.
+
+Key Features:
+
+*   Initializes with a log file name and starts a worker thread.
+*   Provides a shutdown method to stop the logging thread gracefully.
+*   Formats log entries before writing them to the file.

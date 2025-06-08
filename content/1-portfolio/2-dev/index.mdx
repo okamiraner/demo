@@ -1,9 +1,105 @@
 ---
 asIndexPage: true
-sidebarTitle: Sample API Reference
+sidebarTitle: Sample Dev Instruction
 ---
 
 
-# Payment Gateway API
+import { FileTree } from 'nextra/components'
 
 
+# SOLAR-APP_POSTFIX Installation Guide
+
+Before starting the installation, set up a server and create a user with the
+following commands:
+
+```sh
+useradd USER_NAME
+passw USER_PASSWORD
+```
+
+To acquire a` SOLAR-APP_POSTFIX` build, connect to the official sFTP server
+(refer to section "FTP Connectivity” for details), download an archive named as
+solar-APP_POSTFIX.zip, and unpack it:
+
+```sh
+unzip solar-APP_POSTFIX.zip -d /opt/APPLICATION_NAME
+```
+
+or navigate to `/opt/APPLICATION_NAME` and run:
+
+```sh
+jar xvf solar-APP_POSTFIX.zip
+```
+
+In result, the target directory will be of the following recommended structure:
+
+<FileTree>
+  <FileTree.Folder name="opt" open>
+    <FileTree.Folder name="APPLICATION_NAME">
+      <FileTree.File name="solar-APP_POSFIX.jar" />
+      <FileTree.Folder name="config" open>
+        <FileTree.File name="context.xml" />
+        <FileTree.File name="logback.xml" />
+      </FileTree.Folder>
+      <FileTree.File name="sut-DB_ID.jar" />
+      <FileTree.File name="run.sh" active />
+      <FileTree.Folder name="lib" />
+      <FileTree.File name="[openjdk.tar.gz]" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+where
+*   `solar-APP_POSTFIX.jar`—a web application distributive
+*   `config`—the directory containing configuration files
+*   `sut-DB-ID.jar`—applications for initialization and updating databases
+*   `run.sh`—the start script
+*   `lib`—the directory containing third-party libraries
+*   `openjdk.tar.gz`—(optionally) an OpenJDK distributive
+
+> [!NOTE]
+>
+> At this point, check if the server has the Java platform installed—in the
+> negative case, download JDK 11 from the Oracle official website or use an
+> OpenJDK distributive from the archive (if included).
+
+
+## Database Configuration
+
+In order to get a database that works correctly, perform the following key
+steps:
+1.  Create a database.
+1.  Create a database user (choosing solar as a username is suggested).
+1.  Create all necessary tablespaces:
+
+    ```sh
+    solar_data
+    solar_index
+    solar_txn_data solar_txn_index solar_10g
+    solar_temp
+    solar_audit
+    solar_audit_index
+    solar_cfg_data
+    solar_cig_index
+    solar_cig_audit
+    solar_cfg_audit_index
+    solar_res_data
+    solar_res_index
+    ```
+
+1.  Grant all necessary permission to the database user:
+
+    ```sh
+    grant create session to solar
+    grant create any table to solar
+    grant create any index to solar
+    grant create any sequence to solar
+    grant create any trigger to solar
+    grant create any procedure to solar
+    grant connect to solar
+    grant resource to solar
+    grant create job to solar
+    grant select any dictionary to solar
+    grant create view to solar
+    grant alter session to solar
+    ```

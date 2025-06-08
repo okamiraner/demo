@@ -4,4 +4,31 @@ sidebarTitle: Portfolio
 ---
 
 
+import { Cards } from 'nextra/components';
+import { Callout } from 'nextra/components';
 
+
+# Portfolio
+
+<Cards
+  num="2"
+>
+  <Cards.Card
+    icon={"🗄️"}
+    title="IP Document"
+    href="1-portfolio/1-ip"
+    arrow
+  />
+  <Cards.Card
+    icon={"⚙️"}
+    title="Instructions"
+    href="1-portfolio/2-dev"
+    arrow
+  />
+</Cards>
+
+<Callout type="info">
+  Some information in the documents may be nonsensical due to intentional
+  obfuscation, as revealing actual technical details is not the purpose of this
+  website.
+</Callout>

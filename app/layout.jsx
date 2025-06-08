@@ -4,19 +4,15 @@ import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
 
  
-export const metadata = {
-  // Define your metadata here
-  // For more information on metadata API, see: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
-}
+export const metadata = {}
 
 
 const navbar = (
   <Navbar
     logo={<b>⚡️ Portfolio & Trials</b>}
-    // ... Your additional navbar options
   />
 )
-const footer = <Footer>© {new Date().getFullYear()}. All materials are fictional and shared as a demo. </Footer>
+const footer = <Footer>© {new Date().getFullYear()}. All materials are fictional and shared as a demo.</Footer>
 
 
 export default async function RootLayout({ children }) {
@@ -27,6 +23,7 @@ export default async function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <Head>
+        <title></title>
         <link
           rel="icon"
           href={`data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='.9em' font-size='90' text-anchor='middle'>⚡️</text></svg>`}

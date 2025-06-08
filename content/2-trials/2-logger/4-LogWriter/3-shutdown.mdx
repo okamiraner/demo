@@ -1,0 +1,5 @@
+# ~LogWriter();
+
+The destructor calls the shutdown method to ensure that the worker thread is
+properly terminated and that any remaining log entries are processed before the
+LogWriter object is destroyed.

@@ -1,0 +1,16 @@
+---
+asIndexPage: true
+sidebarTitle: LockFreeQueue
+---
+
+
+# class LockFreeQueue
+
+
+Implements a lock-free queue to store log entries. It allows multiple threads to
+en-queue and de-queue log entries without blocking.
+
+Key Features:
+*   Supports concurrent access with atomic operations.
+*   Provides en-queue and dequeue methods for adding and retrieving items.
+*   Handles wrap-around using a circular buffer.

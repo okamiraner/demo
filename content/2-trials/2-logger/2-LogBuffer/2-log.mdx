@@ -1,0 +1,23 @@
+# log()
+
+This method creates a new log entry and adds it to the log buffer. It uses a
+mutex to ensure that memory allocation is thread-safe. If memory allocation for the log entry fails, it catches the exception and returns false. If successful, it constructs a LogEntry in the allocated memory and enqueues it in the lock-free queue.
+
+
+## Parameters
+
+
+### level
+
+The severity level of the log entry (e.g., INFO, WARNING, ERROR).
+
+
+### message
+
+A pointer to a null-terminated string containing the log message to be recorded.
+
+
+## Returns
+
+Returns true if the log entry was successfully created and enqueued; returns
+false if memory allocation fails or if the queue is full.

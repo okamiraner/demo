@@ -1,0 +1,20 @@
+# LogWriter()
+
+Initializes the LogWriter with the specified LogBuffer and log file name. It
+attempts to open the log file for writing. If the file cannot be opened, it
+throws a `std::runtime_error`. It also starts a worker thread that runs the run
+method to process log entries.
+
+
+## Parameters
+
+
+### buffer
+
+A reference to the LogBuffer instance from which log entries will be consumed.
+
+
+### filename
+
+The name of the file where log entries will be written. The file is opened in
+append mode.
