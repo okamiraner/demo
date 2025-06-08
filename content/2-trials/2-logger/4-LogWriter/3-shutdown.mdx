@@ -1,5 +1,8 @@
-# ~LogWriter();
+# shutdown()
 
-The destructor calls the shutdown method to ensure that the worker thread is
-properly terminated and that any remaining log entries are processed before the
-LogWriter object is destroyed.
+This method signals the worker thread to stop processing log entries by setting
+the `shutdown_flag` to `true`.
+
+It then waits for the worker thread to finish by `calling join()` if the thread
+is joinable. This ensures that all log entries are processed before the
+LogWriter is destroyed.
