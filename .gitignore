@@ -4,3 +4,4 @@ _pagefind/
 src/
 Doxyfile
 node_modules/
+out/
