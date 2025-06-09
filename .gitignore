@@ -1,6 +1,6 @@
 .DS_Store
 .next/
-_pagefind/
+# _pagefind/
 src/
 Doxyfile
 node_modules/
